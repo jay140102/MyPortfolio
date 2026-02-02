@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { Image, Linking, Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Image, Linking, Pressable, ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { AnimatedSection } from '../components/AnimatedSection';
 import { Education } from '../components/Education';
 import { ProjectSection } from '../components/ProjectSection';
@@ -12,6 +12,8 @@ import { projects } from '../data/projectsData';
 
 export default function Index() {
   const router = useRouter();
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
 
   const handleProjectPress = (id: string) => {
     router.push(`/project/${id}`);
@@ -26,21 +28,21 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
-        <AnimatedSection delay={100} style={styles.hero}>
-          <View style={styles.heroContent}>
-            <View style={styles.heroText}>
-              <Text style={styles.heroTitle}>
+        <AnimatedSection delay={100} style={[styles.hero, isMobile && styles.heroMobile]}>
+          <View style={[styles.heroContent, isMobile && styles.heroContentMobile]}>
+            <View style={[styles.heroText, isMobile && styles.heroTextMobile]}>
+              <Text style={[styles.heroTitle, isMobile && styles.heroTitleMobile]}>
                 Building Digital{'\n'}
                 Experiences that{'\n'}
                 <Text style={styles.heroTitleAccent}>Matter.</Text>
               </Text>
-              <Text style={styles.heroSubtitle}>
+              <Text style={[styles.heroSubtitle, isMobile && styles.heroSubtitleMobile]}>
                 I'm a iOS & Mobile Developer specializing in Swift, UIKit, React Native, and Flutter.
                 I build high-quality mobile applications with clean code and exceptional user experiences.
               </Text>
 
               {/* Contact Info */}
-              <View style={styles.heroMetadata}>
+              <View style={[styles.heroMetadata, isMobile && styles.heroMetadataMobile]}>
                 <Text style={styles.heroContact}>📍 Ahmedabad</Text>
                 <Text style={styles.heroContact}>📧 jpratap581@gmail.com</Text>
                 <Text style={styles.heroContact}>📱 +91 9316169871</Text>
@@ -48,14 +50,14 @@ export default function Index() {
 
               {/* CTA Button */}
               <Pressable
-                style={styles.ctaButton}
+                style={[styles.ctaButton, isMobile && styles.ctaButtonMobile]}
                 onPress={() => Linking.openURL('mailto:jpratap581@gmail.com')}
               >
                 <Text style={styles.ctaButtonText}>Get in touch</Text>
               </Pressable>
 
               {/* Social Links */}
-              <View style={styles.socialLinks}>
+              <View style={[styles.socialLinks, isMobile && styles.socialLinksMobile]}>
                 <Pressable
                   style={styles.socialButton}
                   onPress={() => Linking.openURL('https://github.com/jay140102')}
@@ -75,7 +77,7 @@ export default function Index() {
             <View style={styles.heroImageContainer}>
               <Image
                 source={require('../assets/images/profile.jpg')}
-                style={styles.profilePhoto}
+                style={[styles.profilePhoto, isMobile && styles.profilePhotoMobile]}
               />
             </View>
           </View>
@@ -139,6 +141,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg,
     backgroundColor: Colors.backgroundSecondary,
   },
+  heroMobile: {
+    paddingTop: Spacing.xl,
+    paddingBottom: Spacing.xl,
+  },
   heroContent: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -147,13 +153,26 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
   },
+  heroContentMobile: {
+    flexDirection: 'column-reverse',
+    gap: Spacing.xl,
+  },
   heroText: {
     flex: 1,
+  },
+  heroTextMobile: {
+    alignItems: 'center',
+    textAlign: 'center',
   },
   heroTitle: {
     ...Typography.h1,
     marginBottom: Spacing.lg,
     lineHeight: 68,
+  },
+  heroTitleMobile: {
+    fontSize: 36,
+    lineHeight: 44,
+    textAlign: 'center',
   },
   heroTitleAccent: {
     color: Colors.primary,
@@ -163,9 +182,16 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.xl,
     maxWidth: 600,
   },
+  heroSubtitleMobile: {
+    textAlign: 'center',
+    fontSize: 16,
+  },
   heroMetadata: {
     gap: Spacing.sm,
     marginBottom: Spacing.xl,
+  },
+  heroMetadataMobile: {
+    alignItems: 'center',
   },
   heroContact: {
     ...Typography.body,
@@ -179,6 +205,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginBottom: Spacing.lg,
   },
+  ctaButtonMobile: {
+    alignSelf: 'center',
+  },
   ctaButtonText: {
     ...Typography.body,
     color: '#FFFFFF',
@@ -187,6 +216,9 @@ const styles = StyleSheet.create({
   socialLinks: {
     flexDirection: 'row',
     gap: Spacing.md,
+  },
+  socialLinksMobile: {
+    justifyContent: 'center',
   },
   socialButton: {
     width: 40,
@@ -208,6 +240,12 @@ const styles = StyleSheet.create({
     borderRadius: 180,
     borderWidth: 6,
     borderColor: Colors.background,
+  },
+  profilePhotoMobile: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 4,
   },
   projectsSection: {
     paddingTop: Spacing.xxxl * 2,
