@@ -76,14 +76,17 @@ const styles = StyleSheet.create({
     mockupContainer: {
         flex: 1,
         alignItems: 'center',
+        minWidth: 300,
     },
     content: {
         flex: 1,
         gap: Spacing.md,
+        minWidth: 300,
     },
     contentMobile: {
         alignItems: 'center',
         width: '100%',
+        minWidth: 0,
     },
     title: {
         ...Typography.h3,

@@ -16,7 +16,7 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     return (
         <Animated.View
             entering={FadeInDown.delay(delay).duration(800).springify().damping(12)}
-            style={style}
+            style={[{ width: '100%' }, style]}
         >
             {children}
         </Animated.View>
