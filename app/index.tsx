@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, Linking, Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { AnimatedSection } from '../components/AnimatedSection';
 import { Education } from '../components/Education';
 import { ProjectSection } from '../components/ProjectSection';
 import { WorkExperience } from '../components/WorkExperience';
@@ -25,7 +26,7 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
-        <View style={styles.hero}>
+        <AnimatedSection delay={100} style={styles.hero}>
           <View style={styles.heroContent}>
             <View style={styles.heroText}>
               <Text style={styles.heroTitle}>
@@ -78,34 +79,37 @@ export default function Index() {
               />
             </View>
           </View>
-        </View>
+        </AnimatedSection>
 
         {/* Projects Section */}
         <View style={styles.projectsSection}>
-          <Text style={styles.sectionTitle}>Selected Projects</Text>
-          <Text style={styles.sectionSubtitle}>
-            A showcase of mobile applications I've built and contributed to
-          </Text>
+          <AnimatedSection delay={300}>
+            <Text style={styles.sectionTitle}>Selected Projects</Text>
+            <Text style={styles.sectionSubtitle}>
+              A showcase of mobile applications I've built and contributed to
+            </Text>
+          </AnimatedSection>
 
           {projects.map((project, index) => (
-            <ProjectSection
-              key={project.id}
-              project={project}
-              index={index}
-              onPress={() => handleProjectPress(project.id)}
-            />
+            <AnimatedSection key={project.id} delay={400 + (index * 100)}>
+              <ProjectSection
+                project={project}
+                index={index}
+                onPress={() => handleProjectPress(project.id)}
+              />
+            </AnimatedSection>
           ))}
         </View>
 
         {/* Work Experience Section */}
-        <View style={styles.contentSection}>
+        <AnimatedSection delay={600} style={styles.contentSection}>
           <WorkExperience />
-        </View>
+        </AnimatedSection>
 
         {/* Education Section */}
-        <View style={styles.contentSection}>
+        <AnimatedSection delay={700} style={styles.contentSection}>
           <Education />
-        </View>
+        </AnimatedSection>
 
         {/* Footer */}
         <View style={styles.footer}>

@@ -5,11 +5,21 @@ export default function RootLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: '#0A0E27' },
+        contentStyle: { backgroundColor: '#FFFFFF' },
       }}
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="project/[id]" />
+      <Stack.Screen
+        name="index"
+        options={{
+          title: 'Jay Pratap Singh | Mobile Developer'
+        }}
+      />
+      <Stack.Screen
+        name="project/[id]"
+        options={{
+          title: 'Project Details'
+        }}
+      />
     </Stack>
   );
 }
