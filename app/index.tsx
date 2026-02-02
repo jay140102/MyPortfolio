@@ -48,13 +48,23 @@ export default function Index() {
                 <Text style={styles.heroContact}>📱 +91 9316169871</Text>
               </View>
 
-              {/* CTA Button */}
-              <Pressable
-                style={[styles.ctaButton, isMobile && styles.ctaButtonMobile]}
-                onPress={() => Linking.openURL('mailto:jpratap581@gmail.com')}
-              >
-                <Text style={styles.ctaButtonText}>Get in touch</Text>
-              </Pressable>
+              {/* CTA Buttons */}
+              <View style={[styles.ctaContainer, isMobile && styles.ctaContainerMobile]}>
+                <Pressable
+                  style={styles.ctaButton}
+                  onPress={() => Linking.openURL('mailto:jpratap581@gmail.com')}
+                >
+                  <Text style={styles.ctaButtonText}>Get in touch</Text>
+                </Pressable>
+
+                <Pressable
+                  style={styles.secondaryButton}
+                  onPress={() => Linking.openURL('https://drive.google.com/file/d/1c0FAwVNVT58XuVvFf6he3S40w9QYuthG/view?usp=drivesdk')}
+                >
+                  <Text style={styles.secondaryButtonText}>Resume</Text>
+                  <Ionicons name="download-outline" size={18} color={Colors.text} style={{ marginLeft: Spacing.xs }} />
+                </Pressable>
+              </View>
 
               {/* Social Links */}
               <View style={[styles.socialLinks, isMobile && styles.socialLinksMobile]}>
@@ -197,20 +207,44 @@ const styles = StyleSheet.create({
     ...Typography.body,
     color: Colors.textSecondary,
   },
+  ctaContainer: {
+    flexDirection: 'row',
+    gap: Spacing.md,
+    marginBottom: Spacing.lg,
+  },
+  ctaContainerMobile: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: Spacing.md,
+    width: '100%',
+  },
   ctaButton: {
     backgroundColor: Colors.primary,
     paddingHorizontal: Spacing.xl,
     paddingVertical: Spacing.md,
     borderRadius: 8,
-    alignSelf: 'flex-start',
-    marginBottom: Spacing.lg,
   },
   ctaButtonMobile: {
-    alignSelf: 'center',
+    // Removed as it's handled by ctaContainerMobile
   },
   ctaButtonText: {
     ...Typography.body,
     color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  secondaryButton: {
+    backgroundColor: 'transparent',
+    paddingHorizontal: Spacing.xl,
+    paddingVertical: Spacing.md,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  secondaryButtonText: {
+    ...Typography.body,
+    color: Colors.text,
     fontWeight: '600',
   },
   socialLinks: {

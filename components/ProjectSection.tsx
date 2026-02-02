@@ -24,7 +24,7 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({ project, index, 
             isMobile && styles.containerMobile
         ]}>
             {/* Phone Mockup */}
-            <View style={styles.mockupContainer}>
+            <View style={[styles.mockupContainer, isMobile && styles.mockupContainerMobile]}>
                 <PhoneMockup
                     screenshot={screenshot}
                     borderColor={project.color}
@@ -69,14 +69,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row-reverse',
     },
     containerMobile: {
-        flexDirection: 'column-reverse',
-        gap: Spacing.xl,
-        paddingVertical: Spacing.xl,
+        flexDirection: 'column',
+        gap: Spacing.xxl, // Increased gap for better separation
+        paddingVertical: Spacing.xxl,
     },
     mockupContainer: {
         flex: 1,
         alignItems: 'center',
         minWidth: 300,
+    },
+    mockupContainerMobile: {
+        flex: 0,
+        width: '100%',
+        minHeight: 600, // Force height to contain the 560px phone mockup
+        justifyContent: 'center',
     },
     content: {
         flex: 1,
@@ -84,6 +90,7 @@ const styles = StyleSheet.create({
         minWidth: 300,
     },
     contentMobile: {
+        flex: 0,
         alignItems: 'center',
         width: '100%',
         minWidth: 0,
