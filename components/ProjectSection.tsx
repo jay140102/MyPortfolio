@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row-reverse',
     },
     containerMobile: {
-        flexDirection: 'column',
+        flexDirection: 'column-reverse',
         gap: Spacing.xl,
         paddingVertical: Spacing.xl,
     },
