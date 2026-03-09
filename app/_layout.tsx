@@ -20,6 +20,12 @@ export default function RootLayout() {
           title: 'Project Details'
         }}
       />
+      <Stack.Screen
+        name="privacy"
+        options={{
+          title: 'Privacy Policy | QuickChat WA'
+        }}
+      />
     </Stack>
   );
 }

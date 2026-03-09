@@ -28,28 +28,28 @@ export default function Index() {
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
-        <AnimatedSection delay={100} style={[styles.hero, isMobile && styles.heroMobile]}>
-          <View style={[styles.heroContent, isMobile && styles.heroContentMobile]}>
-            <View style={[styles.heroText, isMobile && styles.heroTextMobile]}>
-              <Text style={[styles.heroTitle, isMobile && styles.heroTitleMobile]}>
+        <AnimatedSection delay={100} style={[styles.hero, isMobile ? styles.heroMobile : {}]}>
+          <View style={[styles.heroContent, isMobile ? styles.heroContentMobile : {}]}>
+            <View style={[styles.heroText, isMobile ? styles.heroTextMobile : {}]}>
+              <Text style={[styles.heroTitle, isMobile ? styles.heroTitleMobile : {}]}>
                 Building Digital{'\n'}
                 Experiences that{'\n'}
                 <Text style={styles.heroTitleAccent}>Matter.</Text>
               </Text>
-              <Text style={[styles.heroSubtitle, isMobile && styles.heroSubtitleMobile]}>
+              <Text style={[styles.heroSubtitle, isMobile ? styles.heroSubtitleMobile : {}]}>
                 I'm a iOS & Mobile Developer specializing in Swift, UIKit, React Native, and Flutter.
                 I build high-quality mobile applications with clean code and exceptional user experiences.
               </Text>
 
               {/* Contact Info */}
-              <View style={[styles.heroMetadata, isMobile && styles.heroMetadataMobile]}>
+              <View style={[styles.heroMetadata, isMobile ? styles.heroMetadataMobile : {}]}>
                 <Text style={styles.heroContact}>📍 Ahmedabad</Text>
                 <Text style={styles.heroContact}>📧 jpratap581@gmail.com</Text>
                 <Text style={styles.heroContact}>📱 +91 9316169871</Text>
               </View>
 
               {/* CTA Buttons */}
-              <View style={[styles.ctaContainer, isMobile && styles.ctaContainerMobile]}>
+              <View style={[styles.ctaContainer, isMobile ? styles.ctaContainerMobile : {}]}>
                 <Pressable
                   style={styles.ctaButton}
                   onPress={() => Linking.openURL('mailto:jpratap581@gmail.com')}
@@ -67,7 +67,7 @@ export default function Index() {
               </View>
 
               {/* Social Links */}
-              <View style={[styles.socialLinks, isMobile && styles.socialLinksMobile]}>
+              <View style={[styles.socialLinks, isMobile ? styles.socialLinksMobile : {}]}>
                 <Pressable
                   style={styles.socialButton}
                   onPress={() => Linking.openURL('https://github.com/jay140102')}
@@ -87,7 +87,7 @@ export default function Index() {
             <View style={styles.heroImageContainer}>
               <Image
                 source={require('../assets/images/profile.jpg')}
-                style={[styles.profilePhoto, isMobile && styles.profilePhotoMobile]}
+                style={[styles.profilePhoto, isMobile ? styles.profilePhotoMobile : {}]}
               />
             </View>
           </View>
@@ -128,6 +128,14 @@ export default function Index() {
           <Text style={styles.footerText}>
             © 2026 Jay Pratap Singh. Built with React Native & Expo.
           </Text>
+          <Pressable
+            onPress={() => router.push('/privacy' as any)}
+            style={{ marginTop: Spacing.sm }}
+          >
+            <Text style={[styles.footerText, { color: Colors.primary, textDecorationLine: 'underline' }]}>
+              Privacy Policy
+            </Text>
+          </Pressable>
         </View>
       </ScrollView>
     </View>

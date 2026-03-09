@@ -1,0 +1,40 @@
+# Privacy Policy for QuickChat WA
+
+**Last Updated: March 2025**
+
+Welcome to **QuickChat WA** ("we," "our," or "the App"). This Privacy Policy explains how we handle information when you use our mobile application. By using the App, you agree to the practices described in this policy.
+
+---
+
+### 1. Introduction
+QuickChat WA is designed to help you send WhatsApp messages to phone numbers without needing to save them as contacts. This application is built as an interface to interact with third-party services (WhatsApp).
+
+### 2. Information We Do Not Collect
+**QuickChat WA does not collect, store, or transmit any personally identifiable information (PII).**
+* We do not require account registration.
+* We do not store phone numbers on our servers.
+* We do not collect names, emails, or contact lists.
+* All data you enter (phone numbers and messages) is processed locally on your device.
+
+### 3. Local Storage
+To provide the **"Recent Numbers"** feature, the App stores phone numbers locally on your device using encrypted local storage (AsyncStorage).
+* This data **never leaves your device**.
+* It is not accessible to us or any third party.
+* You can clear this data at any time within the app settings.
+
+### 4. Advertising (Future Updates)
+The App may use Google AdMob in future updates to display advertisements. AdMob may collect certain device identifiers for the purpose of serving relevant ads. We configure AdMob to prioritize non-personalized ads where required. For more details, see [Google's Privacy Policy](https://policies.google.com/privacy).
+
+### 5. Third-Party Links & Services
+The App communicates with WhatsApp through publicly available official deep links (`wa.me`). When you tap "Open in WhatsApp," you are redirected to the official WhatsApp application. WhatsApp is subject to its own Privacy Policy and Terms of Service. We are not responsible for the data practices of WhatsApp.
+
+### 6. Children's Privacy
+The App is not directed to children under the age of 13. We do not knowingly collect any personal information from children.
+
+### 7. Changes to This Policy
+We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the "Last Updated" date at the top of this document.
+
+### 8. Contact Us
+If you have questions about this Privacy Policy, please contact us at:
+**Email:** Jpratap581@gmail.com
+**Website:** https://jaypratapsingh.vercel.app/
